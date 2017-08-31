@@ -1,0 +1,108 @@
+.task-data{
+	border-top: 1px solid #000; 
+	border-bottom: 1px solid #000; 
+}
+.task-button{
+	position: element(.task-name);
+	transform: translate(90%, -65%);
+	height: 8em;
+	width: 50%;
+}
+.todo-app .right, .middle, .left  {
+	width: 33%;
+	border: 1px solid #000; 
+}
+.right{
+position: absolute;	
+right: 0;
+top: 0;
+background: #aafed6;
+}
+.right select,
+.right textarea,
+.right button,
+.right input{
+	width: 50%;
+	padding: .5rem;
+	margin: .5rem;
+	line-height: 1;
+	font-size: 1.2rem;
+	background: #fff;
+}
+.right textarea{
+	width: 90%;
+}
+.middle{
+	display: inline-block;
+	background: white;
+
+}
+.left {
+	float: left;
+    background: #e8f6fe;
+}​​
+input {
+	 
+}
+h1 {
+  font-family: 'blanchcaps_inline', sans-serif;
+  text-align: left;
+  text-indent: .5rem;
+  font-size: .5rem;
+  font-weight: normal;
+}
+h2,
+h3{
+  font-weight: bold;
+  font-family: 'haymakerregular', sans-serif;
+}
+h2{
+	font-size: 1rem;
+}
+h3 {
+	font-size: 2rem;
+	text-align: center;
+}
+
+/*.task-edit {
+  margin-bottom: 20px;
+  border: 2px solid #000;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.task-edit input,
+.task-edit textarea,
+.task-edit select {
+  width: 33.33%;
+  padding: 10px;
+  line-height: 1;
+  font-size: 1.2rem;
+  border: 0;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-radius: 0;
+  background: #fff;
+}
+.task-edit input:focus,
+.task-edit textarea:focus,
+.task-edit select:focus {
+  outline: 0;
+  background: #fef2de;
+}
+.task-edit textarea {
+  width: 100%;
+}
+.task-edit input:last-of-type {
+  width: 100%;
+}
+.task-edit button {
+  width: 100%;
+  border: 0;
+}*/
