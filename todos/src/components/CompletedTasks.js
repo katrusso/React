@@ -8,7 +8,7 @@ class CompletedTasks extends React.Component{
 	}
 	renderCompletedList(key){
 		const task = this.props.tasks[key]
-		const removeButton = <button onClick={() => this.props.removeFromCompleted(key)}>Mark as incomplete</button>
+		const removeButton = <button onClick={() => {this.props.removeFromCompleted(key); task.status = 'not done'}}>Mark as incomplete</button>
 		if(task.status === 'done') {
 			return <li key={key}> {task.name} {removeButton}</li>
 		}
