@@ -14,7 +14,6 @@ class CompletedTasks extends React.Component{
 		}
 	}
 	render(){	
-		const completedIds = Object.keys(this.props.completed)		
 		return(
 			<div>
 				<h3>Done</h3>
