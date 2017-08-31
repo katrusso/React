@@ -17,14 +17,16 @@ class AllTasks extends React.Component{
 	renderTasks(key){
 		const task = this.props.tasks[key]
 		return(
-			<div className="task-edit" key={key}>
-				<input type="text" name="name" value={task.name} placeholder="Task Name" onChange={(e) => this.handleChange(e, key)} />
-				<textarea type="text" name="desc" value={task.desc}  placeholder="Task Desc" onChange={(e) => this.handleChange(e, key)} />
-				<select type="text" name="status" value={task.status} placeholder="Task Status" onChange={(e) => this.handleChange(e, key)} >
-					<option value="not done">Incomplete</option>
-					<option value="done">Done!</option>
-				</select>
-				<button onClick={() => this.props.deleteTask(key)}>Remove Task</button>
+			<div className="task-data">
+				<div className="task-edit" key={key}>
+					<input type="text" name="name" value={task.name} placeholder="Task Name" onChange={(e) => this.handleChange(e, key)} />
+					<textarea type="text" name="desc" value={task.desc}  placeholder="Task Desc" onChange={(e) => this.handleChange(e, key)} />
+					<select type="text" name="status" value={task.status} placeholder="Task Status" onChange={(e) => this.handleChange(e, key)} >
+						<option value="not done">Incomplete</option>
+						<option value="done">Done!</option>
+					</select>
+					<button onClick={() => this.props.deleteTask(key)}>Remove Task</button>
+				</div>
 			</div>
 			)
 	}
@@ -34,14 +36,12 @@ class AllTasks extends React.Component{
 				<h3>New Task</h3>
 				<AddTaskForm addTask = {this.props.addTask} />
 				<button onClick={this.props.loadSamples}>Load Sample Tasks</button>
-				<div className="all-tasks-list">
 			{/* list all the tasks that have been entered 		*/}		
 				{
 					Object
 						.keys(this.props.tasks)
 						.map(this.renderTasks)
 				} 
-				</div>
 			</div>
 			)
 	}
