@@ -10,6 +10,7 @@ class App extends React.Component {
     this.addTask = this.addTask.bind(this)
     this.loadSamples = this.loadSamples.bind(this)
     this.deleteTask = this.deleteTask.bind(this)
+    this.updateTask = this.updateTask.bind(this)
     this.addToCompletedList = this.addToCompletedList.bind(this)
     this.removeFromCompleted = this.removeFromCompleted.bind(this)
 
@@ -20,6 +21,11 @@ class App extends React.Component {
     }
   }
 
+  updateTask = (key, updatedTask) => {
+    const tasks = {...this.state.tasks}
+    tasks[key] = updatedTask
+    this.setState({ tasks })
+  }
   addToCompletedList(key) {
     const completed = {...this.state.completed} //copy state
     completed[key] = completed[key] + 1 || 1 //incrememnt index
@@ -33,7 +39,7 @@ class App extends React.Component {
   addTask(task){
     const tasks = {...this.state.tasks}
     const timestamp = Date.now()
-    tasks['task-${timestamp}']=task
+    tasks[`task-${timestamp}`]=task
     this.setState({ tasks:tasks })
   }
   loadSamples(){
@@ -69,7 +75,6 @@ class App extends React.Component {
                   .map(key => <Task 
                                 key={key} 
                                 details={this.state.tasks[key]} 
-                                deleteTask={this.deleteTask} 
                                 addToCompletedList={this.addToCompletedList}
                                 />
                       )
@@ -80,8 +85,11 @@ class App extends React.Component {
         <div className="new">
           <div className="right">
             <AllTasks 
+              tasks={this.state.tasks}
               addTask={this.addTask} 
               loadSamples={this.loadSamples}
+              updateTask={this.updateTask}
+              deleteTask = {this.deleteTask}
             />
           </div>
         </div>
