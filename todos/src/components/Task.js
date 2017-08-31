@@ -4,7 +4,7 @@ class Task extends React.Component{
 	constructor(){
 		super()
 
-		this.state {
+		this.state = {
 			//do I put status in here and update it by calling setState?
 		}
 	}

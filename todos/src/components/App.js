@@ -14,12 +14,12 @@ class App extends React.Component {
     this.addToCompletedList = this.addToCompletedList.bind(this)
     this.removeFromCompleted = this.removeFromCompleted.bind(this)
 
-
     this.state = {
       tasks: {},
       completed: {}
     }
   }
+
 
   updateTask = (key, updatedTask) => {
     const tasks = {...this.state.tasks}
@@ -68,15 +68,18 @@ class App extends React.Component {
           <div className="middle">
             <h3>To Do</h3>
               <ul className="list-of-tasks">
-  {/*            Need to exclude completed tasks from this list
-  */}              {
+                  {/* Exclude completed tasks from this list */}              {
                   Object
                     .keys(this.state.tasks)
-                    .map(key => <Task 
+                    .map(key => 
+                        (this.state.tasks)[key].status === 'not done' ? 
+                          <li key={key}>
+                                <Task 
                                   key={key} 
                                   details={this.state.tasks[key]} 
                                   addToCompletedList={this.addToCompletedList}
-                                  />
+                                />
+                          </li> : ""
                         )
                   }
             </ul>
