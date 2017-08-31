@@ -11,7 +11,7 @@ class AllTasks extends React.Component{
 	handleChange(e, key){
 		const task = this.props.tasks[key]
 		const updatedTask = {...task, [e.target.name]: e.target.value} //make a copy of the task and update its data
-		this.props.updatedTask(key, updatedTask)
+		this.props.updateTask(key, updatedTask)
 	}
 
 	renderTasks(key){
