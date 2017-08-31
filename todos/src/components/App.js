@@ -67,18 +67,18 @@ class App extends React.Component {
         <div className="in-progress">
           <div className="middle">
             <h3>To Do</h3>
-            <ul className="list-of-tasks">
-{/*            Need to exclude completed tasks from this list
-*/}              {
-                Object
-                  .keys(this.state.tasks)
-                  .map(key => <Task 
-                                key={key} 
-                                details={this.state.tasks[key]} 
-                                addToCompletedList={this.addToCompletedList}
-                                />
-                      )
-              }
+              <ul className="list-of-tasks">
+  {/*            Need to exclude completed tasks from this list
+  */}              {
+                  Object
+                    .keys(this.state.tasks)
+                    .map(key => <Task 
+                                  key={key} 
+                                  details={this.state.tasks[key]} 
+                                  addToCompletedList={this.addToCompletedList}
+                                  />
+                        )
+                  }
             </ul>
           </div>
         </div>
