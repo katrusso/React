@@ -13,5 +13,15 @@ module.exports = {
 		name: 'Iron shirt', 
 		desc: 'Use starch',
 		status: 'done'
-	}
+	},
+	task4: {
+		name: 'Fold Laundry', 
+		desc: '2 Loads',
+		status: 'done'
+	},
+	task5: {
+		name: 'Walk neighbor\'s dog', 
+		desc: '3pm',
+		status: 'done'
+	},
 }
