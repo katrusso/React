@@ -21,25 +21,24 @@ class App extends React.Component {
     }
   }
 
-// syncs component state with stored firebase db state before the component gets rendered
-//store the completed tasks in the db (currently using task list because I haven't added anything to completed)
-//but sync the todo list locally in html 5 local storage (the browser); you could also use cookies
+  // syncs component state with stored firebase db state before the component gets rendered
+  //store the completed tasks in the db (currently using task list because I haven't added anything to completed)
+  //but sync the todo list locally in html 5 local storage (the browser); you could also use cookies
   componentWillMount() {
     this.ref = base.syncState(`tasks`, {
       context: this,
       state: 'tasks'
-  })
-}
+    })
+  }
 
-//stop syncing changes between the component and db
-// componentWillUnmount(){
-//   base.removeBinding(this.ref);
-// }
+  //stop syncing changes between the component and db
+  componentWillUnmount(){
+    base.removeBinding(this.ref);
+  }
 
-//runs whenever props or state changes
-  // componentWillUpdate(nextProps, nextState) {
-  //   localStorage.setItem(`tasks-${this.props.params.}`, JSON.stringify(nextState.tasks));
-  // }
+  //runs whenever props or state changes
+  componentWillUpdate(nextProps, nextState) {
+  }
 
   updateTask = (key, updatedTask) => {
     const tasks = {...this.state.tasks}
