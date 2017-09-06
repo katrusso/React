@@ -24,12 +24,12 @@ class App extends React.Component {
 // syncs component state with stored firebase db state before the component gets rendered
 //store the completed tasks in the db (currently using task list because I haven't added anything to completed)
 //but sync the todo list locally in html 5 local storage (the browser); you could also use cookies
-//   componentWillMount() {
-//     this.ref = base.syncState(`${this.state.tasks}`, {
-//       context: this,
-//       state: 'tasks'
-//   })
-// }
+  componentWillMount() {
+    this.ref = base.syncState(`tasks`, {
+      context: this,
+      state: 'tasks'
+  })
+}
 
 //stop syncing changes between the component and db
 // componentWillUnmount(){

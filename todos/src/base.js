@@ -19,3 +19,5 @@ var app = firebase.initializeApp({
     databaseURL: "https://todo-katrusso.firebaseio.com",
 });
 var base = Rebase.createClass(app.database());
+
+export default base
