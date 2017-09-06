@@ -7,13 +7,16 @@ class CompletedTasks extends React.Component{
 
 	}
 	renderCompletedList(key){
+		console.log('key:', key);
 		const task = this.props.tasks[key]
-		const removeButton = <button onClick={() => {this.props.removeFromCompleted(key); task.status = 'not done'}}>Mark as incomplete</button>
+		const removeButton = <button onClick={() => {this.props.toggleTaskStatus(key)}}>Mark as incomplete</button>
 		if(task.status === 'done') {
 			return <li key={key}> {task.name} {removeButton}</li>
 		}
 	}
 	render(){	
+		console.log(this.props.tasks)
+
 		return(
 			<div>
 				<h3>Done</h3>
@@ -21,7 +24,7 @@ class CompletedTasks extends React.Component{
 				{
 					Object
 						.keys(this.props.tasks)
-						.map(this.renderCompletedList)
+						.map(key => this.renderCompletedList(key))
 				}   
 				</ul>   
 				 </div>

@@ -14,6 +14,8 @@ class App extends React.Component {
     this.updateTask = this.updateTask.bind(this)
     this.addToCompletedList = this.addToCompletedList.bind(this)
     this.removeFromCompleted = this.removeFromCompleted.bind(this)
+    this.renderCompletedList = this.renderCompletedList.bind(this)
+    this.toggleTaskStatus = this.toggleTaskStatus.bind(this)
 
     this.state = {
       tasks: {},
@@ -32,9 +34,9 @@ class App extends React.Component {
   }
 
   //stop syncing changes between the component and db
-  componentWillUnmount(){
-    base.removeBinding(this.ref);
-  }
+  // componentWillUnmount(){
+  //   base.removeBinding(this.ref);
+  // }
 
   //runs whenever props or state changes
   componentWillUpdate(nextProps, nextState) {
@@ -71,15 +73,55 @@ class App extends React.Component {
     tasks[key] = null;
     this.setState({ tasks:tasks})
   }
+  renderCompletedList(){
+    const tasks = {...this.state.tasks}
+
+    // TODO: change status to boolean isDone
+    return(
+      Object
+      .keys(this.state.tasks)
+      .filter(key => (this.state.tasks[key].status == 'done'))
+      .reduce((a, b) => {a[b] = this.state.tasks[b]; return a;}, {})
+    )
+  }
+  toggleTaskStatus(key){
+    const tasks = {...this.state.tasks}
+    console.log(tasks, key)
+    const status = tasks[key].status
+    if (status == 'done'){ 
+      tasks[key].status = 'not done'
+    }
+    else {
+      tasks[key].status = 'done'
+    }
+
+    this.setState({ tasks })
+  }
+
   render() {
     return (
       <div className="todo-app">
         <div className="done">
           <div className="left">
+          <h3> DONE </h3>
+            <ul>
+              {
+                Object
+                  .keys(this.state.tasks)
+                  .filter(key => (this.state.tasks[key].status == 'done'))
+                  .map(key => 
+                    <li key={key}>
+                      {this.state.tasks[key].name}
+                    </li>
+                      )
+                }
+            </ul>
+
+     
               <CompletedTasks 
-                tasks={this.state.tasks}
-                completed={this.state.completed}
-                removeFromCompleted={this.removeFromCompleted}
+                tasks={this.renderCompletedList()}
+                //completed={this.state.completed}
+                toggleTaskStatus={this.toggleTaskStatus}
               />
           </div>
         </div>
