@@ -1,13 +1,6 @@
 import React from 'react'
 
 class Task extends React.Component{
-	constructor(){
-		super()
-
-		this.state = {
-			//do I put status in here and update it by calling setState?
-		}
-	}
 	render(){
 		const {details} = this.props
 		const isNotDone = details.status ==='not done'
@@ -21,7 +14,6 @@ class Task extends React.Component{
 				<h1 className="desc">
 					<p>{details.desc}</p>	
 				</h1>
-				<button className="task-button" onClick={() => {this.props.addToCompletedList;details.status ==='done'}}>{buttonText}</button>
 {/*
 	Need to change the status when button is clicked: {details.status ==='done'}
 	{this.props.addToCompletedList(key)} 
