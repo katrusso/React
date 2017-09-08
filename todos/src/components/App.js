@@ -81,23 +81,19 @@ class App extends React.Component {
   }
 
   renderCompletedList(){
-    const tasks = {...this.state.tasks}
-
     return(
       Object
       .keys(this.state.tasks)
-      .filter(key => (this.state.tasks[key].isDone == true))
+      .filter(key => (this.state.tasks[key].isDone === true))
       .reduce((a, b) => {a[b] = this.state.tasks[b]; return a;}, {})
     )
   }
 
   renderTodoList(){
-     const tasks = {...this.state.tasks}
-
     return(
       Object
       .keys(this.state.tasks)
-      .filter(key => (this.state.tasks[key].isDone == false))
+      .filter(key => (this.state.tasks[key].isDone === false))
       .reduce((a, b) => {a[b] = this.state.tasks[b]; return a;}, {})
     )
   }
