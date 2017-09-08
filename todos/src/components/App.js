@@ -67,20 +67,22 @@ class App extends React.Component {
     tasks[`task-${timestamp}`]=task
     this.setState({ tasks:tasks })
   }
+
   loadSamples(){
     this.setState({
       tasks: sampleTasks
     })
   }
+
   deleteTask = (key) => { 
     const tasks = {...this.state.tasks}
     tasks[key] = null;
     this.setState({ tasks:tasks})
   }
+
   renderCompletedList(){
     const tasks = {...this.state.tasks}
 
-    // TODO: change status to boolean isDone
     return(
       Object
       .keys(this.state.tasks)
@@ -92,7 +94,6 @@ class App extends React.Component {
   renderTodoList(){
      const tasks = {...this.state.tasks}
 
-    // TODO: change status to boolean isDone
     return(
       Object
       .keys(this.state.tasks)
@@ -103,15 +104,8 @@ class App extends React.Component {
 
   toggleTaskStatus(key){
     const tasks = {...this.state.tasks}
-    console.log(tasks, key)
     const isDone = tasks[key].isDone
     isDone ? tasks[key].isDone = false : tasks[key].isDone = true
-    // if (status == 'done'){ 
-    //   tasks[key].status = 'not done'
-    // }
-    // else {
-    //   tasks[key].status = 'done'
-    // }
     this.setState({ tasks })
   }
 
@@ -132,23 +126,6 @@ class App extends React.Component {
               tasks={this.renderTodoList()}
               toggleTaskStatus={this.toggleTaskStatus}
             />
-              {/*    
-                <ul className="list-of-tasks">
-                  Object
-                    .keys(this.state.tasks)
-                    .map(key => 
-                        (this.state.tasks)[key].status === 'not done' ? 
-                          <li key={key}>
-                                <Task 
-                                  key={key} 
-                                  details={this.state.tasks[key]} 
-                                  toggleTaskStatus={this.toggleTaskStatus}
-                                />
-                          </li> : ""
-                        )
-                  }
-            </ul>
-            */} 
           </div>
         </div>
         <div className="new">
