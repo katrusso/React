@@ -84,7 +84,7 @@ class App extends React.Component {
     return(
       Object
       .keys(this.state.tasks)
-      .filter(key => (this.state.tasks[key].status == 'done'))
+      .filter(key => (this.state.tasks[key].isDone == true))
       .reduce((a, b) => {a[b] = this.state.tasks[b]; return a;}, {})
     )
   }
@@ -96,7 +96,7 @@ class App extends React.Component {
     return(
       Object
       .keys(this.state.tasks)
-      .filter(key => (this.state.tasks[key].status == 'not done'))
+      .filter(key => (this.state.tasks[key].isDone == false))
       .reduce((a, b) => {a[b] = this.state.tasks[b]; return a;}, {})
     )
   }
@@ -104,14 +104,14 @@ class App extends React.Component {
   toggleTaskStatus(key){
     const tasks = {...this.state.tasks}
     console.log(tasks, key)
-    const status = tasks[key].status
-    if (status == 'done'){ 
-      tasks[key].status = 'not done'
-    }
-    else {
-      tasks[key].status = 'done'
-    }
-
+    const isDone = tasks[key].isDone
+    isDone ? tasks[key].isDone = false : tasks[key].isDone = true
+    // if (status == 'done'){ 
+    //   tasks[key].status = 'not done'
+    // }
+    // else {
+    //   tasks[key].status = 'done'
+    // }
     this.setState({ tasks })
   }
 
@@ -128,8 +128,7 @@ class App extends React.Component {
         </div>
         <div className="in-progress">
           <div className="middle">
-{/*            <h3>To Do</h3>
-*/}         <TodoList 
+             <TodoList 
               tasks={this.renderTodoList()}
               toggleTaskStatus={this.toggleTaskStatus}
             />

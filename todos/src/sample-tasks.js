@@ -2,26 +2,26 @@ module.exports = {
 	task1: {
 		name: 'Buy milk', 
 		desc: 'Be sure to get 2%',
-		status: 'not done'
+		isDone: true
 	},
 	task2: {
 		name: 'Find a job', 
 		desc: 'Check newspaper and online',
-		status: 'not done'
+		isDone: false	
 	},
 	task3: {
 		name: 'Iron shirt', 
 		desc: 'Use starch',
-		status: 'done'
+		isDone: false
 	},
 	task4: {
 		name: 'Fold Laundry', 
 		desc: '2 Loads',
-		status: 'done'
+		isDone: true
 	},
 	task5: {
 		name: 'Walk neighbor\'s dog', 
 		desc: '3pm',
-		status: 'done'
+		isDone: true
 	},
 }

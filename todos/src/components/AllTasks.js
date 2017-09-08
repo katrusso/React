@@ -21,9 +21,9 @@ class AllTasks extends React.Component{
 				<div className="task-edit" key={key}>
 					<input type="text" name="name" value={task.name} placeholder="Task Name" onChange={(e) => this.handleChange(e, key)} />
 					<textarea type="text" name="desc" value={task.desc}  placeholder="Task Desc" onChange={(e) => this.handleChange(e, key)} />
-					<select type="text" name="status" value={task.status} placeholder="Task Status" onChange={(e) => this.handleChange(e, key)} >
-						<option value="not done">Incomplete</option>
-						<option value="done">Done!</option>
+					<select type="text" name="isDone" value={task.isDone} placeholder="Task Status - isDone" onChange={(e) => this.handleChange(e, key)} >
+						<option value='false'>Incomplete</option>
+						<option value='true'>Done!</option>
 					</select>
 					<button onClick={() => this.props.deleteTask(key)}>Remove Task</button>
 				</div>
@@ -31,6 +31,8 @@ class AllTasks extends React.Component{
 			)
 	}
 	render(){
+		// details.isDone === true
+
 		return(
 			<div >
 				<h3>New Task</h3>

@@ -10,7 +10,7 @@ class TodoList extends React.Component{
 		console.log('key:', key);
 		const task = this.props.tasks[key]
 		const markAsCompleteButton = <button onClick={() => {this.props.toggleTaskStatus(key)}}>Mark as complete</button>
-		if(task.status === 'not done') {
+		if(task.isDone === false) {
 			return <li key={key}> {task.name} {markAsCompleteButton}</li>
 		}
 	}

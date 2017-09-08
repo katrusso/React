@@ -3,25 +3,19 @@ import React from 'react'
 class Task extends React.Component{
 	render(){
 		const {details} = this.props
-		const isNotDone = details.status ==='not done'
-		const buttonText = isNotDone ? 'Mark as complete' : 'Completed'
+		const isDone = details.isDone === true
+		const buttonText = isDone ? 'Completed' : 'Mark as Complete'
 
-		return(
-			<li className="task-data">
-				<h2 className="task-name">
-					{details.name}
-				</h2>
-				<h1 className="desc">
-					<p>{details.desc}</p>	
-				</h1>
-{/*
-	Need to change the status when button is clicked: {details.status ==='done'}
-	{this.props.addToCompletedList(key)} 
-<button className="task-button" onClick={() => this.props.addToCompletedList(index)} disabled={!isNotDone}>{buttonText}</button>
-<button className="delete-button" onClick={this.props.deleteTask}>Delete task</button>	
-*/}	
-			</li>	
-			)
+		return
+		(
+			<ul className="list-of-tasks">
+				<li className="task-data">
+					<h2 className="task-name">{details.name}</h2>
+					<h1 className="desc"><p>{details.desc}</p>	</h1>
+{/*					<button className="task-button" onClick={() => {this.props.toggleTaskStatus(key)}}>{buttonText}</button>
+*/}				</li>	
+			</ul>
+		)
 	}
 }
 
